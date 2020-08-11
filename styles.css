@@ -1,0 +1,544 @@
+
+body{
+    font-family: Segoe UI,SegoeUI,Segoe WP,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+    height: 8000px;
+    transition: 0.5s;
+}
+#navbar{
+    position: fixed;
+    border-right: solid rgba(0, 22, 22, 0.4);
+    height: 100%;
+    top: 0;
+    left: 0;
+    min-width: 275px;
+    float: left;
+    background: white;
+    z-index: 3;
+}
+
+#navbar header{
+    font-size: 25px;
+    display: block;
+    margin: 20px;
+    text-align: center;
+}
+
+#navbar ul {
+    height: 100%;
+    padding: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#navbar li{
+    font-size: 17.5px;
+    border-top: 1px solid rgba(0, 22, 22, 0.4);
+    list-style: none;
+}
+
+.nav-link{
+    display: block;
+    position: relative;
+    text-decoration: none;
+    color:rgb(62.5, 62.5, 62.5);
+    font-weight: 300;
+    padding: 6% 35px;
+}
+.nav-link:hover{
+    color:#0091ff; 
+}
+#c-decoration{
+    background: #8763c5;
+    border-radius: 10px;
+    padding: 2.5px 5px 2.5px 5px;
+    color: white;
+}
+#blue{
+    color: rgb(86, 156, 214);
+}
+#light-blue{
+    color: rgb(1, 207, 255);
+}
+#orange{
+    color: rgb(206, 145, 120);
+}
+#light-green{
+    color: rgb(181, 206, 168);
+}
+#green{
+    color: rgb(87, 166, 74);
+}
+#main-doc{
+    float: left;
+    position: relative;
+    padding-left: 275px;
+    width: 75vw;
+    margin-top: 0;
+}
+
+#main-doc header{
+    font-family: "Open Sans", Arial, sans-serif;
+    color: black;
+    margin-top: 2.5%;
+    margin-left: 2.5%;
+    font-size: 30px;
+    font-weight: thin;
+    position: relative;
+    display: flex;
+}
+
+.main-section ul{
+    margin-right: 2.5%;
+    margin-left: 5%;
+    color: rgb(62.5, 62.5, 62.5);
+    padding: 0;
+    list-style: none;
+}
+
+
+.main-section li{
+    padding-bottom: 10px;
+}
+.main-section p{
+    margin-right: 2.5%;
+    margin-left: 5%;
+    color: rgb(62.5, 62.5, 62.5);
+    padding-top: 5px;
+    list-style: none;
+}
+
+#sel{
+    font-style: italic;
+    font-weight: 600;
+}
+
+#marked{
+    background-color: rgb(220, 220, 220);
+    border-radius: 3px;
+}
+
+.main-section header{
+    font-family: "Open Sans", Arial, sans-serif;
+    color: black;
+    margin-top: 2.5%;
+    margin-left: 2.5%;
+    font-size: 30px;
+    font-weight: thin;
+    position: relative;
+    display: flex;
+}
+#c-code{
+    font-size: 12.8px;
+    font-weight: 400;
+    color: rgb(227, 227, 227);
+    margin: auto auto auto 2.5%;
+    text-rendering: optimizeLegibility;
+}
+.codeHeader{
+    min-width: 450px;
+    max-width: 1550px;
+    position: relative;
+    display: flex;
+    margin-right: 25%;
+    margin-left:  5%;
+    background: #242424;
+    border: 1px solid #454545;
+    padding-top: 7.5px;
+    padding-bottom: 7.5px;
+}
+
+.written-code{
+    margin-top: 0;
+    min-width: 450px;
+    max-width: 1550px;
+    height: 180px;
+    display: flex;
+    margin-right: 25%;
+    margin-left: 5%;
+    background: rgb(46, 46, 46);
+    border: 1px solid #454545;
+    border-top: 0;
+}
+#written-code-decoraiton{
+    position: relative;
+    display: block;
+    color: white;
+    margin: 1% 2.5%;
+    font-size: 15px;
+}
+.written-code-sh{
+    margin-top: 0;
+    min-width: 450px;
+    max-width: 1550px;
+    height: 50px;
+    display: flex;
+    margin-right: 25%;
+    margin-left: 5%;
+    background: rgb(46, 46, 46);
+    border: 1px solid #454545;
+    border-top: 0;
+}
+.written-code-sh #written-code-decoraiton{
+    margin: 0 2.5%;
+}
+.written-code-ln{
+    margin-top: 0;
+    min-width: 625px;
+    max-width: 1550px;
+    height: 575px;
+    display: flex;
+    margin-right: 25%;
+    margin-left: 5%;
+    background: rgb(46, 46, 46);
+    border: 1px solid #454545;
+    border-top: 0;
+}
+.written-code-md{
+    margin-top: 0;
+    min-width: 450px;
+    max-width: 1550px;
+    height: 300px;
+    display: flex;
+    margin-right: 25%;
+    margin-left: 5%;
+    background: rgb(46, 46, 46);
+    border: 1px solid #454545;
+    border-top: 0;
+}
+.written-code-sm{
+    margin-top: 0;
+    min-width: 450px;
+    max-width: 1550px;
+    height: 100px;
+    display: flex;
+    margin-right: 25%;
+    margin-left: 5%;
+    background: rgb(46, 46, 46);
+    border: 1px solid #454545;
+    border-top: 0;
+}
+#table-div{
+    position: relative;
+    display: block;
+    margin-top: 15px;
+    margin-left: 5%;
+}
+table{
+    color: rgb(62.5, 62.5, 62.5);
+    border-collapse: collapse;
+    border-spacing: 0;
+    line-height: 25.6px;
+    box-sizing: border-box;
+    table-layout: auto;
+    max-width: 750px;
+}
+table thead{
+    position: relative;
+    left: 0.5%;
+    line-height: 160%;
+    bottom: 5px;
+}
+#table-1 tbody{
+    position: relative;
+    left: 4%;
+}
+#table-1 tr td{
+    padding-left: 1%;
+}
+#sdesc{
+    position: absolute;
+    display: flex;
+    margin-left: 4%;
+}
+table td{
+    border-top: 1px solid rgba(0, 22, 22, 0.4);
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#table-2{
+    width: 750px;
+}
+#table-2 tbody tr td{
+    position: relative;
+    left: 2.5%;
+}
+#table-2 thead tr th{
+    position: relative;
+    left: -6.5%;
+}
+#table-2 thead tr th{
+    position: relative;
+    display: table-cell;
+    padding-left: 16px;
+    padding-right: 50px;
+    padding-top: 12px;
+    text-align: left;
+    padding-left: 8.5%;
+} 
+#Types_and_variables .written-code-md{
+    height: 225px;
+}
+#table-3{
+    text-align: left;
+    max-width: 750px;
+}
+#table-3 thead tr th{
+    position: relative;
+    display: table-cell;
+    padding-left: 16px;
+    padding-top: 12px;
+    text-align: left;
+}
+#table-3 tbody tr td{
+    position: relative;
+    padding-right: 3%;
+    left: 2.5%;
+}
+#table-4{
+    width: 650px;
+}
+#table-4 thead tr th{
+    position: relative;
+    display: table-cell;
+    padding-left: 5%;
+    padding-top: 12px;
+    text-align: left;
+}
+#table-4 tbody tr td{
+    position: relative;
+    padding-right: 3%;
+    left: 5%;
+}
+#table-4 td{
+    border-top: 1px solid rgba(0, 22, 22, 0.4);
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#tb4l{
+    padding-left: 10%;
+}
+@media (max-width: 1119px){
+    #navbar{
+        min-width: 150px;
+        max-width: 250px;
+    }
+    
+    #navbar header{
+        font-size: 15px;
+    }
+    #navbar li{
+        font-size: 15px;
+    }
+    
+    .nav-link{
+        padding: 6% 35px;
+    }
+    #main-doc{
+        font-size: 15px;
+        margin-left: 200px;
+        float: left;
+        padding: 0;
+    }
+
+    #main-doc section{
+        font-size: 15px;
+    }
+    #main-doc header{
+        font-size: 25px;
+    }
+    table{
+        font-size: 12.5px;
+        width: 75% !important;
+        padding-right: 0;
+    }
+}
+@media (max-width: 855px){
+    #navbar{
+        min-width: 100px;
+        max-width: 200px;
+    }
+    .codeHeader{
+        min-width: 375px;
+        max-width: 425px;
+        right: 0;
+        margin-right: 0;
+        padding-right: 0;
+        margin-left:  5%;
+    }
+    
+    .written-code{
+        margin-right: 0;
+        padding-right: 0;
+        right: 0;
+        min-width: 375px;
+        max-width: 425px;
+        height: 125px;
+    }
+    #written-code-decoraiton{
+        margin: 1% 2.5%;
+        right: 0;
+        margin-right: 0;
+        padding-right: 0;
+        font-size: 10px;
+    }
+    .written-code-sh{
+        min-width: 375px;
+        max-width: 425px;
+        height: 35px;
+        right: 0;
+        margin-right: 0;
+        padding-right: 0;
+        margin-left: 5%;
+    }
+    .written-code-sh #written-code-decoraiton{
+        margin: 0 2.5%;
+    }
+    .written-code-ln{
+        min-width: 375px;
+        max-width: 425px;
+        height: 375px;
+        right: 0;
+        margin-right: 0;
+        padding-right: 0;
+    }
+    .written-code-md{
+        min-width: 375px;
+        max-width: 425px;
+        height: 200px;
+        right: 0;
+        margin-right: 0;
+        padding-right: 0;
+        margin-left: 5%;
+    }
+    #Types_and_variables .written-code-md{
+        min-width: 375px;
+        max-width: 425px;
+        height: 150px;
+        right: 0;
+        margin-right: 0;
+        padding-right: 0;
+        margin-left: 5%;
+    }
+    .written-code-sm{
+        min-width: 375px;
+        max-width: 425px;
+        height: 60px;
+        right: 0;
+        margin-right: 0;
+        padding-right: 0;
+        margin-left: 5%;
+    }
+    #navbar header{
+        font-size: 15px;
+    }
+    #navbar li{
+        font-size: 12.5px;
+    }
+    
+    .nav-link{
+        padding: 6% 32.5px;
+    }
+    #main-doc{
+        font-size: 15px;
+        margin-left: 175px;
+        float: left;
+        padding: 0;
+    }
+
+    #main-doc section{
+        font-size: 12.5px;
+    }
+    #main-doc header{
+        font-size: 22.5px;
+    }
+    table{
+        font-size: 11px;
+        width: 90%;
+        padding-right: 0;
+    }
+    #table-2 thead tr th{
+        position: relative;
+        display: table-cell;
+        padding-left: 12px;
+        padding-right: 25px;
+        padding-top: 6px;
+        text-align: left;
+        padding-left: 8.5%;
+    } 
+}
+@media only screen and (max-width: 640px) {
+    #navbar ul{
+        font-size:0;
+        border: none;
+        position: absolute;
+        width: 0;
+        height: 0;
+        margin: 0;
+        padding: 0;
+        display: none;
+        top: -100px;
+        left: 0;
+    }
+  
+    #navbar {
+      position: absolute;
+      top: -10px;
+      left: 0;
+      margin-left: 0;
+      padding-left: 0;
+      width: 100%;
+      height: 50px;
+      z-index: 1;
+      border: none;
+    }
+    #navbar header{
+        text-align: center;
+        padding-bottom: 10px;
+        left: 0;
+        width: 100vw;
+        font-size: 30px;
+        left: 0;
+        margin-left: 0;
+        padding-left: 0;
+        box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.07);
+    }
+  
+    #main-doc {
+      position: relative;
+      margin-left: 0px;
+      top: 50px;
+    }
+    #main-doc{
+        text-align: left;
+        margin-left: 2.5%;
+        padding: 0;
+        max-width: 80vw;
+    }
+
+    #main-doc section{
+        font-size: 15px;
+        width: 125%;
+    }
+    #main-doc header{
+        font-size: 22.5px;
+    }
+    table{
+        font-size: 11px;
+        width: 70%;
+        padding-right: 0;
+    }
+    #table-2{
+        width: 300px !important;
+    }
+    #table-2 thead tr th{
+        position: relative;
+        display: table-cell;
+        padding-left: 5px;
+        padding-right: 20px;
+        padding-top: 3px;
+        text-align: left;
+        padding-left: 8.5%;
+    } 
+}

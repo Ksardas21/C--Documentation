@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link href="styles.css" rel="stylesheet" type="text/css"/>
+        <title>C# Technical documentation</title>
+    </head>
+    <body>
+     
+        <nav id="navbar">
+            <header><span id="c-decoration">C#</span> Documentation</header>
+            <ul>
+                <li>
+                    <a class="nav-link" href="#Introduction">Introduction</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#Hello_world">Hello world</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#Program_structure">Program structure</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#Types_and_variables">Types and variables</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#Expressions">Expressions</a>
+                </li>
+            </ul>
+        </nav>
+            <main id="main-doc">
+                <section class="main-section" id="Introduction">
+                    <header>Introduction</header>
+                    <ul>
+                        <li>C# (pronounced "See Sharp") is a simple, modern, object-oriented, and type-safe programming language.
+                            C# has its roots in the C family of languages and will be immediately familiar to C, C++, and Java
+                            programmers. C# is standardized by ECMA International as the <span id="sel">ECMA-334</span> standard and by
+                            <span id="sel">ISO/IEC as the ISO/IEC 23270</span> standard. Microsoft's C# compiler for the
+                            .NET Framework is a conforming implementation of both of these standards.
+                        </li>
+                        <li>C# is an object-oriented language, but C# further includes support for <span id="sel">component-oriented</span> programming.
+                            Contemporary software design increasingly relies on software components in the form of self-contained
+                            and self-describing packages of functionality. Key to such components is that they present a programming
+                            model with properties, methods, and events; they have attributes that provide declarative information
+                            about the component; and they incorporate their own documentation. C# provides language constructs
+                            to directly support these concepts, making C# a very natural language in which to create and use
+                            software components.
+                        </li>
+                        <li>
+                            Several C# features aid in the construction of robust and durable applications:
+                            <span id="sel">Garbage collection</span> automatically reclaims memory occupied by unused objects;
+                            <span id="sel">exception handling</span> provides a structured and extensible approach to error detection and recovery;
+                            and the <span id="sel">type-safe</span> design of the language makes it impossible to read from uninitialized variables,
+                            to index arrays beyond their bounds, or to perform unchecked type casts.
+                        </li>
+                        <li>
+                            C# has a <span id="sel">unified type system</span>. All C# types, including primitive types such as <code id="marked">int</code> and <code id="marked">double</code>,
+                            inherit from a single root <code id="marked">objects</code> type. Thus, all types share a set of common operations,
+                            and values of any type can be stored, transported, and operated upon in a consistent manner.
+                            Furthermore, C# supports both user-defined reference types and value types, allowing dynamic
+                            allocation of objects as well as in-line storage of lightweight structures.
+                        </li>
+                        <li>
+                            To ensure that C# programs and libraries can evolve over time in a compatible manner,
+                            much emphasis has been placed on <span id="sel">versioning</span> in C#'s design. Many programming languages pay
+                            little attention to this issue, and, as a result, programs written in those languages break
+                            more often than necessary when newer versions of dependent libraries are introduced. Aspects of C#'s
+                            design that were directly influenced by versioning considerations include the separate <code id="marked">virtual</code> and
+                            <code id="marked">override</code> modifiers, the rules for method overload resolution, and support for explicit interface
+                            member declarations.
+                        </li>
+                        <li>
+                            The rest of this chapter describes the essential features of the C# language.
+                            Although later chapters describe rules and exceptions in a detail-oriented and sometimes
+                            mathematical manner, this chapter strives for clarity and brevity at the expense of completeness.
+                            The intent is to provide the reader with an introduction to the language that will facilitate
+                            the writing of early programs and the reading of later chapters.
+                        </li>
+                    </ul>
+                </section>
+                <section class="main-section" id="Hello_world"><header>Hello world</header>
+                  <article>
+                        <p>
+                            The "Hello, World" program is traditionally used to introduce a programming language. Here it is in C#:
+                        </p>
+                        <div class="codeHeader" id="code-try-0"><span id="c-code">C#</span></div>
+                        <pre class="written-code" tabindex="0"><code id="written-code-decoraiton">
+<span id="blue">using</span> System;
+
+<span id="blue">class</span> <span id="light-blue">Hello</span>
+{
+    <span id="blue">static void</span> <span id="light-blue">Main</span>() {
+         Console.WriteLine(<span id="orange">"Hello, World"</span>);
+    }
+}</code>
+                        </pre>
+                        <p>
+                            C# source files typically have the file extension .cs. Assuming that the "Hello,
+                            World" program is stored in the file hello.cs, the program can be compiled with
+                            the Microsoft C# compiler using the command line
+                        </p>
+                        <div class="codeHeader" id="code-try-0"><span id="c-code">console</span></div>
+                        <pre class="written-code-sh" tabindex="0"><code id="written-code-decoraiton">
+csc hello.cs</code>
+                        </pre>
+                        <P>which produces an executable assembly named hello.exe.
+                            The output produced by this application when it is run is</P>
+                            <div class="codeHeader" id="code-try-0"><span id="c-code">console</span></div>
+                        <pre class="written-code-sh" tabindex="0"><code id="written-code-decoraiton">
+Hello, World</code></pre>
+                        <p>
+                            The "Hello, World" program starts with a <code id="marked">using</code> directive that references the <code id="marked">System</code> namespace.
+                            Namespaces provide a hierarchical means of organizing C# programs and libraries.
+                            Namespaces contain types and other namespaces—for example, the System , namespace contains
+                            a number of types, such as the <code id="marked">Console</code> class referenced in the program, and a number of other
+                            namespacessuch as <code id="marked">IO</code> and <code id="marked">Collections</code>. A <code id="marked">using</code> directive that references a
+                            given namespace enables unqualified use of the types that are members of that namespace.
+                            Because of the <code id="marked">using</code> directive, the program can use <code id="marked">Console.WriteLine</code> as shorthand for
+                            <code id="marked">System.Console.WriteLine</code>.
+                        </p>
+                        <p>
+                            The <code id="marked">Hello</code> class declared by the "Hello, World" program has a single member, the method named <code id="marked">Mai</code>n.
+                            The <code id="marked">Main</code> method is declared with the <code id="marked">static</code> modifier. While instance methods can reference a
+                            particular enclosing object instance using the keyword <code id="marked">this</code>, static methods operate without
+                            reference to a particular object. By convention, a static method named <code id="marked">Main</code> serves as the
+                            entry point of a program.
+                        </p>
+                        <p>
+                            The output of the program is produced by the <code id="marked">WriteLine</code> method of the
+                            <code id="marked">Console</code> class in the <code id="marked">System</code>
+                            namespace. This class is provided by the .NET Framework class libraries, which, by default,
+                            are automatically referenced by the Microsoft C# compiler. Note that C# itself does not have
+                            a separate runtime library. Instead, the .NET Framework is the runtime library of C#.
+                        </p>
+                    </article>
+                </section>
+                <section class="main-section" id="Program_structure"><header>Program structure</header>
+                    <article>
+                        <p>The key organizational concepts in C# are <span id="sel">programs</span>, <span id="sel">namespaces</span>,
+                            <span id="sel">types</span>, <span id="sel">members</span>,and <span id="sel">assemblies</span>.
+                            C# programs consist of one or more source files. Programs declare types,
+                            which contain members and can be organized into namespaces. Classes and interfaces
+                            are examples of types. Fields, methods, properties, and events are examples of members.
+                            When C# programs are compiled, they are physically packaged into assemblies.
+                            Assemblies typically have the file extension <code id="marked">.exe</code> or 
+                            <code id="marked">.dll</code>, depending on whether they implement <span id="sel">applications</span> or <span id="sel">libraries</span>.
+                        </p>
+                        <p>
+                            The example
+                        </p>
+                        <div class="codeHeader" id="code-try-0"><span id="c-code">C#</span></div>
+                        <pre class="written-code-ln" tabindex="0"><code id="written-code-decoraiton">
+<span id="blue">using</span> System;
+
+<span id="blue">namespace</span> <span id="light-blue">Acme.Collections</span>
+{
+    <span id="blue">public class</span> <span id="light-blue">Stack</span>
+    {
+        Entry top;
+                            
+        <span id="blue">public void</span> <span id="light-blue">Push</span>(<span id="blue">object</span> data) {
+            top = <span id="blue">new</span> Entry(top, data);
+        }
+                            
+        <span id="blue">public object</span> <span id="light-blue">Pop</span>() {
+            <span id="blue">if</span> (top == <span id="blue">null</span>) <span id="blue">throw new</span> InvalidOperationException();
+            <span id="blue">object</span> result = top.data;
+            top = top.next;
+            <span id="blue">return</span> result;
+        }
+                            
+        <span id="blue">class</span> <span id="light-blue">Entry</span>
+        {
+            <span id="blue">public</span> <span id="light-blue">Entry</span> next;
+            <span id="blue">public object</span> data;
+                                
+            <span id="blue">public</span> <span id="light-blue">Entry</span>(Entry next, <span id="blue">object</span> data) {
+                <span id="blue">this</span>.next = next;
+                <span id="blue">this</span>.data = data;
+            }
+        }
+    }
+}</code></pre>
+                        <p>
+                            declares a class named <code id="marked">Stack</code> in a namespace called <code id="marked">Acme.Collections</code>.
+                            The fully qualified name of this class is <code id="marked">Acme.Collections.Stack</code>.
+                            The class contains several members: a field named <code id="marked">top</code>, two methods named 
+                            <code id="marked">Push</code> and <code id="marked">Pop</code>,
+                            and a nested class named Entry. The Entry class further contains three
+                            members: a field named <code id="marked">next</code>, a field named <code id="marked">data</code>, and a constructor.
+                            Assuming that the source code of the example is stored in the file <code id="marked">acme.cs</code>, the command line
+                        </p>
+                        <div class="codeHeader" id="code-try-0"><span id="c-code">console</span></div>
+                        <pre class="written-code-sh" tabindex="0"><code id="written-code-decoraiton">
+csc /t:library acme.cs</code>
+                        </pre>
+                        <p>
+                            compiles the example as a library (code without a <code id="marked">Main</code> entry point)
+                            and produces an assembly named <code id="marked">acme.dll</code>.
+                        </p>
+                        <p>
+                            Assemblies contain executable code in the form of <span id="sel">Intermediate Language</span> (IL) instructions,
+                            and symbolic information in the form of <span id="sel">metadata</span>. Before it is executed,
+                            the IL code in an assembly is automatically converted to processor-specific 
+                            code by the Just-In-Time (JIT) compiler of .NET Common Language Runtime.
+                        </p>
+                        <p>
+                            Because an assembly is a self-describing unit of functionality containing 
+                            both code and metadata, there is no need for <code id="marked">#include</code> directives and header 
+                            files in C#. The public types and members contained in a particular assembly are made 
+                            available in a C# program simply by referencing that assembly when compiling the program. 
+                            For example, this program uses the <code id="marked">Acme.Collections</code>.Stack class from the <code id="marked">acme.dll</code> assembly:
+                        </p>
+                        <div class="codeHeader" id="code-try-0"><span id="c-code">C#</span></div>
+                        <pre class="written-code-md" tabindex="0"><code id="written-code-decoraiton">
+<span id="blue">using</span> System;
+<span id="blue">using</span> Acme.Collections;
+                            
+<span id="blue">class</span> <span id="light-blue">Test</span>
+{
+    <span id="blue">static void</span> <span id="light-blue">Main</span>() {
+        Stack s = <span id="blue">new</span> Stack();
+        s.Push(1);
+        s.Push(10);
+        s.Push(100);
+        Console.WriteLine(s.Pop());
+    Console.WriteLine(s.Pop());
+    Console.WriteLine(s.Pop());
+    }
+}</code>
+                        </pre>
+                        <p>
+                            If the program is stored in the file <code id="marked">test.cs</code>, when <code id="marked">test.cs</code>
+                            is compiled, the acme.dll assembly can be referenced using
+                            the compiler's <code id="marked">/r</code> option:
+                        </p>
+                        <div class="codeHeader" id="code-try-0"><span id="c-code">console</span></div>
+                        <pre class="written-code-sh" tabindex="0"><code id="written-code-decoraiton">
+csc /r:acme.dll test.cs</code>
+                        </pre>
+                        <p>
+                            This creates an executable assembly named <code id="marked">test.exe</code>, which, when run, produces the output:
+                        </p>
+                        <div class="codeHeader" id="code-try-0"><span id="c-code">console</span></div>
+                        <pre class="written-code-sm" tabindex="0"><code id="written-code-decoraiton">
+100
+10
+1</code>
+                        </pre>
+                        <p>
+                            C# permits the source text of a program to be stored in several source files. When a multi-file C# program is compiled, all of the source files are processed together, and the source files can freely reference each other—conceptually, it is as if all the source files were concatenated into one large file before being processed. Forward declarations are never needed in C# because, with very few exceptions, declaration order is insignificant. C# does not limit a source file to declaring only one public type nor does it require the name of the source file to match a type declared in the source file.
+                        </p>
+                    </article>
+                </section>
+                <section class="main-section" id="Types_and_variables">
+                    <header>Types and variables</header>
+                    <article>
+                        <p>
+                            There are two kinds of types in C#: <span id="sel">value types</span> and <span id="sel">reference types</span>.
+                            Variables of value types directly contain their data whereas variables
+                            of reference types store references to their data, the latter being known 
+                            as objects. With reference types, it is possible for two variables to 
+                            reference the same object and thus possible for operations on one variable 
+                            to affect the object referenced by the other variable. With value types, 
+                            the variables each have their own copy of the data, and it is not possible 
+                            for operations on one to affect the other 
+                            (except in the case of <code id="marked">ref</code> and <code id="marked">out</code> parameter variables).
+                        </p>
+                        <p>C#'s value types are further divided into <span id="sel">simple types</span>, <span id="sel">enum types</span>, 
+                            <span id="sel">struct types</span>, and nullable types, and C#'s reference types are further 
+                            divided into <span id="sel">class types</span>, <span id="sel">interface types</span>, <span id="sel">array types</span>, and <span id="sel">delegate types</span>.
+                        </p>
+                        <p>The following table provides an overview of C#'s type system.</p>
+                    <div id="table-div">
+                        <table id="table-1">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <span id="tab-s">Category</span>
+                                    </th>
+                                    <th></th>
+                                    <th id="sdesc">
+                                        <span id="tab-s">Description</span>
+                                    </th>
+                                </tr>
+                                <tbody>
+                                    <tr>
+                                        <td>Value types</td>
+                                        <td>Simple types</td>
+                                        <td id="tdls">Signed integral: <code id="marked">sbyte</code>, <code id="marked">short</code>, <code id="marked">int</code>, <code id="marked">long</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td id="tdls">Unsigned integral: <code id="marked">byte</code>, <code id="marked">ushort</code>, <code id="marked">uint</code>, <code id="marked">ulong</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td id="tdls">Unicode characters: <code id="marked">char</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td id="tdls">IEEE floating point: <code id="marked">float</code>, <code id="marked">double</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td id="tdls">High-precision decimal: <code id="marked">decimal</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td id="tdls">Boolean: <code id="marked">bool</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Enum types</td>
+                                        <td id="tdls">User-defined types of the form <code id="marked">enum E {...}</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Struct types</td>
+                                        <td id="tdls">User-defined types of the form <code id="marked">struct S {...}</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Nullable types 	</td>
+                                        <td id="tdls">Extensions of all other value types with a <code id="marked">null</code> value</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Reference types</td>
+                                        <td>Class types</td>
+                                        <td id="tdls">Ultimate base class of all other types: <code id="marked">object</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td id="tdls">Unicode strings: <code id="marked">string</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td id="tdls">User-defined types of the form <code id="marked">class C {...}</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Interface types</td>
+                                        <td id="tdls">User-defined types of the form <code id="marked">interface I {...}</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Array types</td>
+                                        <td id="tdls">Single- and multi-dimensional, for example, <code id="marked">int[] and int[,]</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Delegate types</td>
+                                        <td id="tdls">User-defined types of the form e.g. <code id="marked">delegate int D(...)</code></td>
+                                    </tr>
+                                </tbody>
+                            </thead>
+                        </table>
+                    </div>
+                        <p>The eight integral types provide support for 8-bit, 16-bit, 32-bit, and 64-bit values in signed or unsigned form.</p>
+                        <p>The two floating point types, <code id="marked">float</code> and <code id="marked">double</code>, are represented using the 32-bit single-precision and 64-bit double-precision IEEE 754 formats.</p>
+                        <p>The <code id="marked">decimal</code> type is a 128-bit data type suitable for financial and monetary calculations.</p>
+                        <p>C#'s <code id="marked">bool</code> type is used to represent boolean values—values that are either <code id="marked">true</code> or <code id="marked">false</code>.</p>
+                        <p>Character and string processing in C# uses Unicode encoding. The <code id="marked">char</code> type represents a UTF-16 code unit, and the cstring</code> type represents a sequence of UTF-16 code units.</p>
+                        <p>The following table summarizes C#'s numeric types.</p>
+                        <div id="table-div">
+                            <table id="table-2">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <span id="tab-s">Category</span>
+                                        </th>
+                                        <th>
+                                            <span id="tab-s">Bits</span>
+                                        </th>
+                                        <th>
+                                            <span id="tab-s">Type</span>
+                                        </th>
+                                        <th>
+                                            <span id="tab-s">Range/Precision</span>
+                                        </th>
+                                    </tr>
+                                    <tbody>
+                                        <tr>
+                                            <td>Signed integral</td>
+                                            <td>8</td>
+                                            <td><code id="marked">sbyte</code></td>
+                                            <td>-128...127</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>16</td>
+                                            <td><code id="marked">short</code></td>
+                                            <td>-32,768...32,767</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>32</td>
+                                            <td><code id="marked">int</code></td>
+                                            <td>-2,147,483,648...2,147,483,647</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>64</td>
+                                            <td><code id="marked">>long</code</td>
+                                            <td>-9,223,372,036,854,775,808...9,223,372,036,854,775,807</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Unsigned integral</td>
+                                            <td>8</td>
+                                            <td><code id="marked">byte</code></td>
+                                            <td>0...255</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>16</td>
+                                            <td><code id="marked">ushort</code></td>
+                                            <td>0...65,535</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>32</td>
+                                            <td><code id="marked">short</code></td>
+                                            <td>0...4,294,967,295</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>64</td>
+                                            <td><code id="marked">ulong</code></td>
+                                            <td>0...18,446,744,073,709,551,615</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Floating point</td>
+                                            <td>32</td>
+                                            <td><code id="marked">loat</code>f</td>
+                                            <td>1.5 × 10^−45 to 3.4 × 10^38, 7-digit precision</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>64</td>
+                                            <td><code id="marked">double</code></td>
+                                            <td>5.0 × 10^−324 to 1.7 × 10^308, 15-digit precision</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Decimal</td>
+                                            <td>128</td>
+                                            <td><code id="marked">decimal</code></td>
+                                            <td>.0 × 10^−28 to 7.9 × 10^28, 28-digit precision</td>
+                                        </tr>
+                                    </tbody>
+                                </thead>
+                            </table>
+                        </div>
+                            <p>
+                                C# programs use <span id="sel">type declarations</span> to create new types.
+                                A type declaration specifies the name and the members of the new type.
+                                Five of C#'s categories of types are user-definable: class types,
+                                struct types, interface types, enum types, and delegate types.
+                            </p>
+                            <p>A class type defines a data structure that contains data members (fields) and function members (methods, properties, and others). Class types support single inheritance and polymorphism, mechanisms whereby derived classes can extend and specialize base classes.</p>
+                            <p>
+                                A struct type is similar to a class type in that it represents a structure with data members
+                                and function members. However, unlike classes, structs are value types and do not require heap 
+                                allocation. Struct types do not support user-specified inheritance, and all struct types implicitly 
+                                inherit from type <code id="marked">object</code>.
+                            </p>
+                            <p>An interface type defines a contract as a named set of public function members. A class or struct that implements an interface must provide implementations of the interface's function members. An interface may inherit from multiple base interfaces, and a class or struct may implement multiple interfaces.</p>
+                            <p>A delegate type represents references to methods with a particular parameter list and return type. Delegates make it possible to treat methods as entities that can be assigned to variables and passed as parameters. Delegates are similar to the concept of function pointers found in some other languages, but unlike function pointers, delegates are object-oriented and type-safe.</p>
+                            <p>Class, struct, interface and delegate types all support generics, whereby they can be parameterized with other types.</p>
+                            <p>An enum type is a distinct type with named constants. Every enum type has an underlying type, which must be one of the eight integral types. The set of values of an enum type is the same as the set of values of the underlying type.</p>
+                            <p>
+                                C# supports single- and multi-dimensional arrays of any type. 
+                                Unlike the types listed above, array types do not have to be 
+                                declared before they can be used. Instead, array types are 
+                                constructed by following a type name with square brackets. 
+                                For example, <code id="marked">int[]</code> is a single-dimensional array of <code id="marked">int</code>, 
+                                <code id="marked">int[,]</code> is a two-dimensional array of <code id="marked">int</code>, and <code id="marked">int[][]</code> is a single-dimensional 
+                                array of single-dimensional arrays of <code id="marked">int</code>.
+                            </p>
+                            <p>
+                                Nullable types also do not have to be declared before they can be used. 
+                                For each non-nullable value type <code id="marked">T</code> there is a corresponding nullable type <code id="marked">T?</code>, 
+                                which can hold an additional value <code id="marked">null</code>. For instance, <code id="marked">int?</code> is a 
+                                type that can hold any 32 bit integer or the value <code id="marked">null</code>.
+                            </p>
+                            <p>C#'s type system is unified such that a value of any type can be treated as an object. 
+                                Every type in C# directly or indirectly derives from the <code id="marked">object </code>class type, 
+                                and <code id="marked">object</code> is the ultimate base class of all types. Values of reference 
+                                types are treated as objects simply by viewing the values as type object. 
+                                Values of value types are treated as <code id="marked">objects</code> by performing <span id="sel">boxing</span> and 
+                                <span id="sel">unboxing</span> operations. In the following example, an int value is converted 
+                                to <code id="marked">object</code>and back again to <code id="marked">int</code>.
+                            </p>
+                            <div class="codeHeader" id="code-try-0"><span id="c-code">C#</span></div>
+                            <pre class="written-code-md" tabindex="0"><code id="written-code-decoraiton">
+<span id="blue">using</span> System;
+
+<span id="blue">class</span> <span id="light-blue">Test</span>
+{
+    <span id="blue">static void</span> <span id="light-blue">Main</span>() {
+        <span id="blue">int</span> i = <span id="light-green">123</span>;
+        <span id="blue">object</span> o = i;          <span id="green">// Boxing</span>
+        <span id="blue">int</span> j = (<span id="blue">int</span>)o;        <span id="green">// Unboxing</span>
+                                    }
+}</code></pre>
+                            <p>When a value of a value type is converted to type <code id="marked">object</code>, an object instance, 
+                                also called a "box," is allocated to hold the value, and the value is 
+                                copied into that box. Conversely, when an <code id="marked">object</code> reference is cast to 
+                                a value type, a check is made that the referenced object is a box of 
+                                the correct value type, and, if the check succeeds, the value in the box is copied out.
+                            </p>
+                            <p>
+                                C#'s unified type system effectively means that value types can become objects "on demand."
+                                 Because of the unification, general-purpose libraries that use type <code id="marked">object</code> can be used
+                                  with both reference types and value types.
+                            </p>
+                            <p>
+                                There are several kinds of <span id="sel">variables</span> in C#, including fields, array elements,
+                                local variables, and parameters. Variables represent storage locations,
+                                and every variable has a type that determines what values can be stored
+                                in the variable, as shown by the following table.
+                            </p>
+                            <div id="table-div">
+                                <table id="table-3">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <span id="tab-s">Type of Variable</span>
+                                            </th>
+                                            <th id="sdesc">
+                                                <span id="tab-s">Possible Contents</span>
+                                            </th>
+                                        </tr>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    Non-nullable value type
+                                                </td>
+                                                <td>
+                                                    A value of that exact type
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Nullable value type
+                                                </td>
+                                                <td>
+                                                    A null value or a value of that exact type
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    object
+                                                </td>
+                                                <td>
+                                                    A null reference, a reference to an object of any reference type, or a reference to a boxed value of any value type
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Class type
+                                                </td>
+                                                <td>
+                                                    A null reference, a reference to an instance of that class type, or a reference to an instance of a class derived from that class type
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Interface type
+                                                </td>
+                                                <td>
+                                                    A null reference, a reference to an instance of a class type that implements that interface type, or a reference to a boxed value of a value type that implements that interface type
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Array type
+                                                </td>
+                                                <td>
+                                                    A null reference, a reference to an instance of that array type, or a reference to an instance of a compatible array type
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Delegate type
+                                                </td>
+                                                <td>
+                                                    A null reference or a reference to an instance of that delegate type
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </thead>
+                                </table>
+                            </div>    
+                    </article>
+                </section>
+                <section class="main-section" id="Expressions">
+                    <header>Expressions</header>
+                    <article>
+                        <p>
+                            Expressions are constructed from operands and operators. The operators of an expression indicate
+                             which operations to apply to the operands. Examples of operators include +, -, *, /,
+                            and new. Examples of operands include literals, fields, local variables, and expressions.
+                        </p>
+                        <p>
+                            When an expression contains multiple operators, the precedence of the operators 
+                            controls the order in which the individual operators are evaluated. 
+                            For example, the expression x + y * z is evaluated as x + (y * z) because the 
+                            * operator has higher precedence than the + operator.
+                        </p>
+                        <p>
+                            Most operators can be overloaded. Operator overloading permits user-defined operator 
+                            implementations to be specified for operations where one or both of the operands 
+                            are of a user-defined class or struct type.
+                        </p>
+                        <p>
+                            The following table summarizes C#'s operators, listing the operator categories 
+                            in order of precedence from highest to lowest. Operators in the same category have equal precedence.
+                        </p>
+                    <div id="table-div">
+                        <table id="table-4">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <span id="tab-s">Category</span>
+                                    </th>
+                                    <th>
+                                        <span id="tab-s">Expression</span>
+                                    </th>
+                                    <th>
+                                        <span id="tab-s">Description</span>
+                                    </th>
+                                </tr>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            Primary
+                                        </td>
+                                        <td>
+                                          <code id="marked">x.m</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Member access
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked">x(...)</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Method and delegate invocation
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                            <code id="marked">x[...]<code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Array and indexer access
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked">x++</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Post-increment
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked">x--</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Post-decrement
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked">new T(...) </code>	
+                                        </td>
+                                        <td id="tb4l">
+                                            Object and delegate creation
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked">new T(...){...} </code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Object creation with initializer
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked">new {...}</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Anonymous object initializer
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked">new T[...]</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Array creation
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked">typeof(T)</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Obtain System.Type object for T
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked">checked(x)</code> 	
+                                        </td>
+                                        <td id="tb4l">
+                                            Evaluate expression in checked context
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked">unchecked(x)</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Evaluate expression in unchecked context
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked">default(T) 	</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Obtain default value of type T
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked">delegate {...}</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Anonymous function (anonymous method)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Unary
+                                        </td>
+                                        <td>
+                                          <code id="marked">+x</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Identity
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked">-x</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Negation
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked">!x</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Logical negation
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked">~x</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Bitwise negation
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked">++x</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Pre-increment
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked">--x</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Pre-decrement
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked">(T)x</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Explicitly convert x to type T
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked">await x </code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Asynchronously wait for x to complete
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Multiplicative
+                                        </td>
+                                        <td>
+                                          <code id="marked">x * y</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Multiplication
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked"> x / y</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Division
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked">x % y</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Remainder
+                                        </td>
+                                    </tr><tr>
+                                        <td>
+                                            Additive
+                                        </td>
+                                        <td>
+                                          <code id="marked">x + y</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Addition, string concatenation, delegate combination
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked">x - y</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Subtraction, delegate removal
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Shift
+                                        </td>
+                                        <td>
+                                          <code id="marked"> x << y </code>
+                                        </td>
+                                        <td id="tb4l">
+                                            hift left
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked"> x >> y</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Shift right
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Relational and type testing
+                                        </td>
+                                        <td>
+                                          <code id="marked">x < y</coe>
+                                        </td>
+                                        <td id="tb4l">
+                                            Less than
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked">x > y</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Greater than
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked">x <= y</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Less than or equal
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked">x >= y</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Greater than or equal
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked">x is T</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Return true if x is a T, false otherwise
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked">x as T</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Return x typed as T, or null if x is not a T
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Equality
+                                        </td>
+                                        <td>
+                                          <code id="marked">x == y</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Equal
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked">x != y</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Not equal
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Logical AND
+                                        </td>
+                                        <td>
+                          <code id="marked">x & y</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Integer bitwise AND, boolean logical AND
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Logical XOR
+                                        </td>
+                                        <td>
+                                          <code id="marked">x ^ y</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Integer bitwise XOR, boolean logical XOR
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Logical OR
+                                        </td>
+                                        <td>
+                                          <code id="marked">x | y</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Integer bitwise OR, boolean logical OR
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Conditional AND
+                                        </td>
+                                        <td>
+                                          <code id="marked">x && y</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Evaluates y only if x is true
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Conditional OR
+                                        </td>
+                                        <td>
+                                          <code id="marked"> x || y</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Evaluates y only if x is false
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Null coalescing
+                                        </td>
+                                        <td>
+                                          <code id="marked">x ?? y</code> 	
+                                        </td>
+                                        <td id="tb4l">
+                                            Evaluates to y if x is null, to x otherwise
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Conditional
+                                        </td>
+                                        <td>
+                                          <code id="marked">x ? y : z</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Evaluates y if x is true, z if x is false
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Assignment or anonymous function
+                                        </td>
+                                        <td>
+                                          <code id="marked">x = y</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Assignment
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked"> x op= y</code>
+                                        </td>
+                                        <td id="tb4l">
+                                            Compound assignment; supported operators are *= /= %= += -= <<= >>= &= ^= |=
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                          <code id="marked">(T x) => y </code>	
+                                        </td>
+                                        <td id="tb4l">
+                                            Anonymous function (lambda expression)
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </thead>
+                        </table>
+                    </div>
+                    </article>
+                </section>    
+            </main>
+    </body>
+</html>
